@@ -1,0 +1,54 @@
+<!--using ngSwitch-->
+
+    <ul *ngFor = " let item of userArray" [ngSwitch]="item.country">
+        <div [ngStyle]="{'background-color':item.country === 'UK' ? 'yellow' : 'red'}">
+            <ul [ngStyle]="{'font-size.px':24}">
+                <li *ngSwitchCase="'UK'" [ngClass]="{'text-success':true}">
+                    <div *ngFor="let person of item.user">
+                        {{person.name}} ({{ item.country }})
+                    </div>
+                </li>
+                <li *ngSwitchCase="'US'" class="text-primary">
+                    <div *ngFor="let person of item.user">
+                        {{person.name}} ({{ item.country }})
+                    </div>
+                </li>
+                <li *ngSwitchDefault class="text-warning">
+                    <div *ngFor="let person of item.user">
+                        {{person.name}} ({{ item.country }})
+                    </div>
+                </li>
+
+            </ul> 
+        </div>
+    </ul>
+
+
+ <!-- using nested ngFor directive -->
+<!--
+<ul *ngFor = " let group of userArray">
+    <li>{{group.country}}</li>  
+    <ul>
+        <div *ngIf="group.country ==='UK'" class="text-success">
+            <li *ngFor="let person of group.user; let i = index">
+                {{i+1}} - {{person.name}}
+            </li>
+        </div>
+        <div *ngIf="group.country ==='US'" class="text-primary">
+            <li *ngFor="let person of group.user; let i = index">
+                {{i+1}} - {{person.name}}
+            </li>
+        </div>
+    </ul>
+    <ul  *ngFor="let person of group.user; let i = index">
+     
+        <li *ngIf = "person.age < 35">
+            <p>user with age less than 35</p>
+            {{i+1}} - {{person.name}}
+        </li>
+    </ul>
+ 
+</ul> -->
+
+
+

@@ -1,0 +1,37 @@
+
+<form #userForm = "ngForm" (ngSubmit)="onSubmit(userForm)">
+    <div>
+      <label>
+        Name:
+        <input name="name" #name="ngModel" [(ngModel)]="user.name" placeholder="Your name" required>
+      </label>
+      <div class="text-danger">
+        <span *ngIf="name.errors?.['required']">This is required</span>
+      </div>
+     
+    </div>
+    <div>
+      <label>
+        Email:
+        <input name="email" #email="ngModel" [(ngModel)]="user.email" pattern="^[^\s@]+@([^\s@.,]+\.)+[^\s@.,]{2,}$" required>
+      </label>
+      <div class="text-danger">
+        <span *ngIf="email.errors?.['required']">This is required</span>
+        <small *ngIf="email.errors?.['pattern']">Invalid email format.</small>
+      </div>
+     
+    </div>
+    <div>
+      <label>
+        Message:
+        <input name="message" #message="ngModel" [(ngModel)]="user.message" placeholder="Your message" minlength="5" required="">
+      </label>
+      <div class="text-danger">
+        <span *ngIf="message.errors?.['required']">This is required</span>
+        <p *ngIf="message.errors?.['minlength']">Email must contain at least 5 character</p>
+      </div>
+   
+    </div>
+    <button type="submit">Send</button>
+  </form>
+  
