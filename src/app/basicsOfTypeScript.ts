@@ -40,7 +40,7 @@ function hello() {
 hello();
 
 //asynchronous function
-function doAsyncTask(cb) {
+function doAsyncTask(cb: { (): void; (): void; }) {
   setTimeout(() => {
     console.log("Async Task Calling Callback");
     cb();
