@@ -8,5 +8,5 @@
 > Model-driven form:
   * Form set up and validation
   * Used FormGroup and FormControl directives to link HTML form to form model.
-> For developing code more reusable via DI.
+> Developed code more reusable via DI.
   * Configured Angular with @Inject decorators, providers
